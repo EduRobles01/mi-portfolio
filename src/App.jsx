@@ -8,7 +8,7 @@ const data = {
   phone: "+34 601 393 740",
   linkedin: "https://www.linkedin.com/in/eduardo-robles-escoda-299737209",
   about:
-    "Técnico en sistemas con enfoque creciente en ciberseguridad ofensiva. Aprendo rápido de forma autónoma, me organizo bien bajo presión y tengo facilidad natural para el trato con personas. Actualmente preparando certificaciones CJCA y CPTS en HackTheBox Academy.",
+    "Técnico en sistemas con orientación hacia la ciberseguridad. Me adapto rápido a nuevas tecnologías, entiendo los conceptos con facilidad y me organizo bien incluso bajo presión. Disfruto trabajando en equipo y tengo buenas habilidades para comunicarme con personas técnicas y no técnicas. Sigo aprendiendo cada día, actualmente preparando certificaciones en HackTheBox Academy.",
   experience: [
     {
       role: "Soporte Técnico — Centros Educativos",
@@ -132,11 +132,8 @@ export default function Portfolio() {
         borderBottom: scrolled ? "1px solid rgba(255,255,255,0.07)" : "none",
         transition: "all 0.4s ease",
         padding: "0 2rem",
-        display: "flex", alignItems: "center", justifyContent: "space-between", height: "60px",
+        display: "flex", alignItems: "center", justifyContent: "center", height: "60px",
       }}>
-        <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "13px", color: "#4ade80", letterSpacing: "0.05em" }}>
-          er<span style={{ color: "#60a5fa" }}>_</span>dev
-        </span>
         <div style={{ display: "flex", gap: "2rem" }}>
           {NAV.map(n => (
             <button key={n} onClick={() => scrollTo(sectionId(n))} style={{
@@ -150,7 +147,7 @@ export default function Portfolio() {
       </nav>
 
       {/* HERO */}
-      <section id="inicio" style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", padding: "0 2rem" }}>
+      <section id="inicio" style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", padding: "0 clamp(1.5rem, 5vw, 6rem)" }}>
         {/* bg grid */}
         <div style={{
           position: "absolute", inset: 0, zIndex: 0,
@@ -169,7 +166,7 @@ export default function Portfolio() {
           borderRadius: "50%", zIndex: 0, pointerEvents: "none",
         }} />
 
-        <div style={{ position: "relative", zIndex: 1, maxWidth: "700px" }}>
+        <div style={{ position: "relative", zIndex: 1, maxWidth: "820px", width: "100%" }}>
           <div style={{
             display: "inline-flex", alignItems: "center", gap: "8px",
             background: "rgba(74,222,128,0.08)", border: "1px solid rgba(74,222,128,0.2)",
@@ -180,32 +177,32 @@ export default function Portfolio() {
             Disponible para nuevas oportunidades
           </div>
 
-          <h1 style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", fontWeight: "300", lineHeight: 1.1, marginBottom: "1rem", letterSpacing: "-0.02em" }}>
+          <h1 style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)", fontWeight: "300", lineHeight: 1.1, marginBottom: "1rem", letterSpacing: "-0.02em" }}>
             Eduardo<br />
             <span style={{ color: "#60a5fa" }}>Robles</span>{" "}
             <span style={{ color: "rgba(232,234,240,0.4)", fontWeight: "300" }}>Escoda</span>
           </h1>
 
-          <p style={{ fontSize: "18px", color: "rgba(232,234,240,0.6)", marginBottom: "0.5rem", fontWeight: "300" }}>
+          <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "rgba(232,234,240,0.6)", marginBottom: "0.5rem", fontWeight: "300" }}>
             Técnico en Sistemas & Ciberseguridad
           </p>
           <p style={{ fontSize: "14px", color: "rgba(232,234,240,0.35)", marginBottom: "2.5rem", fontFamily: "'Space Mono', monospace" }}>
             Alicante, España · HackTheBox Academy
           </p>
 
-          <p style={{ fontSize: "16px", color: "rgba(232,234,240,0.65)", lineHeight: 1.75, maxWidth: "520px", marginBottom: "3rem", fontWeight: "300" }}>
+          <p style={{ fontSize: "clamp(15px, 1.5vw, 17px)", color: "rgba(232,234,240,0.65)", lineHeight: 1.8, maxWidth: "620px", marginBottom: "3rem", fontWeight: "300" }}>
             {data.about}
           </p>
 
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
             <button onClick={() => scrollTo("contacto")} style={{
               background: "#4ade80", color: "#0a0e1a", border: "none", borderRadius: "8px",
-              padding: "12px 24px", fontSize: "14px", fontWeight: "500", cursor: "pointer",
+              padding: "14px 28px", fontSize: "15px", fontWeight: "500", cursor: "pointer",
               fontFamily: "'DM Sans', sans-serif", transition: "all 0.2s",
             }}>Contactar</button>
             <button onClick={() => scrollTo("experiencia")} style={{
               background: "transparent", color: "#e8eaf0", border: "1px solid rgba(232,234,240,0.2)", borderRadius: "8px",
-              padding: "12px 24px", fontSize: "14px", cursor: "pointer",
+              padding: "14px 28px", fontSize: "15px", cursor: "pointer",
               fontFamily: "'DM Sans', sans-serif", transition: "all 0.2s",
             }}>Ver experiencia</button>
           </div>
@@ -213,7 +210,7 @@ export default function Portfolio() {
       </section>
 
       {/* EXPERIENCIA */}
-      <section id="experiencia" style={{ padding: "6rem 2rem", maxWidth: "900px", margin: "0 auto" }}>
+      <section id="experiencia" style={{ padding: "6rem clamp(1.5rem, 5vw, 6rem)", maxWidth: "1100px", margin: "0 auto" }}>
         <Reveal>
           <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "3rem" }}>
             <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "12px", color: "#4ade80" }}>01</span>
@@ -259,7 +256,7 @@ export default function Portfolio() {
       </section>
 
       {/* FORMACIÓN */}
-      <section id="formacion" style={{ padding: "4rem 2rem 6rem", maxWidth: "900px", margin: "0 auto" }}>
+      <section id="formacion" style={{ padding: "4rem clamp(1.5rem, 5vw, 6rem) 6rem", maxWidth: "1100px", margin: "0 auto" }}>
         <Reveal>
           <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "3rem" }}>
             <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "12px", color: "#4ade80" }}>02</span>
@@ -290,7 +287,7 @@ export default function Portfolio() {
       </section>
 
       {/* HABILIDADES */}
-      <section id="habilidades" style={{ padding: "4rem 2rem 6rem", maxWidth: "900px", margin: "0 auto" }}>
+      <section id="habilidades" style={{ padding: "4rem clamp(1.5rem, 5vw, 6rem) 6rem", maxWidth: "1100px", margin: "0 auto" }}>
         <Reveal>
           <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "3rem" }}>
             <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "12px", color: "#4ade80" }}>03</span>
@@ -356,7 +353,7 @@ export default function Portfolio() {
       </section>
 
       {/* CONTACTO */}
-      <section id="contacto" style={{ padding: "4rem 2rem 8rem", maxWidth: "700px", margin: "0 auto", textAlign: "center" }}>
+      <section id="contacto" style={{ padding: "4rem clamp(1.5rem, 5vw, 6rem) 8rem", maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
         <Reveal>
           <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "3rem" }}>
             <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "12px", color: "#4ade80" }}>04</span>
@@ -375,7 +372,7 @@ export default function Portfolio() {
               border: `1px solid ${copiedEmail ? "rgba(74,222,128,0.4)" : "rgba(255,255,255,0.1)"}`,
               borderRadius: "10px", padding: "14px 28px", color: copiedEmail ? "#4ade80" : "#e8eaf0",
               cursor: "pointer", fontFamily: "'Space Mono', monospace", fontSize: "13px",
-              transition: "all 0.3s", width: "100%", maxWidth: "380px", justifyContent: "center",
+              transition: "all 0.3s", width: "100%", maxWidth: "420px", justifyContent: "center",
             }}>
               {copiedEmail ? "✓ ¡Copiado!" : data.email}
             </button>
@@ -384,7 +381,7 @@ export default function Portfolio() {
               background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.1)",
               borderRadius: "10px", padding: "14px 28px", color: "#e8eaf0",
               textDecoration: "none", fontFamily: "'Space Mono', monospace", fontSize: "13px",
-              width: "100%", maxWidth: "380px", justifyContent: "center",
+              width: "100%", maxWidth: "420px", justifyContent: "center",
             }}>
               {data.phone}
             </a>
@@ -393,7 +390,7 @@ export default function Portfolio() {
               background: "rgba(96,165,250,0.08)", border: "1px solid rgba(96,165,250,0.2)",
               borderRadius: "10px", padding: "14px 28px", color: "#60a5fa",
               textDecoration: "none", fontSize: "13px",
-              width: "100%", maxWidth: "380px", justifyContent: "center", fontWeight: "500",
+              width: "100%", maxWidth: "420px", justifyContent: "center", fontWeight: "500",
             }}>
               LinkedIn →
             </a>
