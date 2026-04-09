@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-
+ 
 const data = {
   name: "Eduardo Robles Escoda",
   title: "Técnico en Sistemas & Ciberseguridad",
@@ -68,9 +68,9 @@ const data = {
   ],
   softSkills: ["Aprendizaje autónomo", "Resolución de problemas", "Comunicación directa", "Trabajo en equipo", "Organización", "Adaptabilidad"],
 };
-
+ 
 const NAV = ["Inicio", "Experiencia", "Formación", "Habilidades", "Contacto"];
-
+ 
 function useInView(threshold = 0.15) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -81,7 +81,7 @@ function useInView(threshold = 0.15) {
   }, []);
   return [ref, visible];
 }
-
+ 
 function Reveal({ children, delay = 0 }) {
   const [ref, visible] = useInView();
   return (
@@ -94,36 +94,36 @@ function Reveal({ children, delay = 0 }) {
     </div>
   );
 }
-
+ 
 export default function Portfolio() {
   const [active, setActive] = useState("Inicio");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
-
+ 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
+ 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMenuOpen(false);
   };
-
+ 
   const copyEmail = () => {
     navigator.clipboard.writeText(data.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
   };
-
+ 
   const sectionId = (n) => n.toLowerCase().replace("ó", "o").replace("é", "e").replace("á", "a");
-
+ 
   return (
     <div style={{ fontFamily: "'DM Sans', sans-serif", background: "#0a0e1a", color: "#e8eaf0", minHeight: "100vh", overflowX: "hidden" }}>
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-
+ 
       {/* NAV */}
       <nav style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
@@ -145,7 +145,7 @@ export default function Portfolio() {
           ))}
         </div>
       </nav>
-
+ 
       {/* HERO */}
       <section id="inicio" style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", padding: "0 clamp(1.5rem, 5vw, 6rem)" }}>
         {/* bg grid */}
@@ -165,7 +165,7 @@ export default function Portfolio() {
           background: "radial-gradient(circle, rgba(96,165,250,0.06) 0%, transparent 70%)",
           borderRadius: "50%", zIndex: 0, pointerEvents: "none",
         }} />
-
+ 
         <div style={{ position: "relative", zIndex: 1, maxWidth: "820px", width: "100%" }}>
           <div style={{
             display: "inline-flex", alignItems: "center", gap: "8px",
@@ -176,24 +176,24 @@ export default function Portfolio() {
             <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4ade80", display: "inline-block", animation: "pulse 2s infinite" }} />
             Disponible para nuevas oportunidades
           </div>
-
+ 
           <h1 style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)", fontWeight: "300", lineHeight: 1.1, marginBottom: "1rem", letterSpacing: "-0.02em" }}>
             Eduardo<br />
             <span style={{ color: "#60a5fa" }}>Robles</span>{" "}
             <span style={{ color: "rgba(232,234,240,0.4)", fontWeight: "300" }}>Escoda</span>
           </h1>
-
+ 
           <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "rgba(232,234,240,0.6)", marginBottom: "0.5rem", fontWeight: "300" }}>
             Técnico en Sistemas & Ciberseguridad
           </p>
           <p style={{ fontSize: "14px", color: "rgba(232,234,240,0.35)", marginBottom: "2.5rem", fontFamily: "'Space Mono', monospace" }}>
             Alicante, España · HackTheBox Academy
           </p>
-
+ 
           <p style={{ fontSize: "clamp(15px, 1.5vw, 17px)", color: "rgba(232,234,240,0.65)", lineHeight: 1.8, maxWidth: "620px", marginBottom: "3rem", fontWeight: "300" }}>
             {data.about}
           </p>
-
+ 
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
             <button onClick={() => scrollTo("contacto")} style={{
               background: "#4ade80", color: "#0a0e1a", border: "none", borderRadius: "8px",
@@ -208,7 +208,7 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
-
+ 
       {/* EXPERIENCIA */}
       <section id="experiencia" style={{ padding: "6rem clamp(1.5rem, 5vw, 6rem)", maxWidth: "1100px", margin: "0 auto" }}>
         <Reveal>
@@ -218,7 +218,7 @@ export default function Portfolio() {
             <div style={{ flex: 1, height: "1px", background: "rgba(232,234,240,0.08)" }} />
           </div>
         </Reveal>
-
+ 
         <div style={{ position: "relative", paddingLeft: "2rem" }}>
           <div style={{ position: "absolute", left: "0", top: "8px", bottom: "8px", width: "1px", background: "linear-gradient(to bottom, #4ade80, #60a5fa, transparent)" }} />
           {data.experience.map((e, i) => (
@@ -254,7 +254,7 @@ export default function Portfolio() {
           ))}
         </div>
       </section>
-
+ 
       {/* FORMACIÓN */}
       <section id="formacion" style={{ padding: "4rem clamp(1.5rem, 5vw, 6rem) 6rem", maxWidth: "1100px", margin: "0 auto" }}>
         <Reveal>
@@ -285,7 +285,7 @@ export default function Portfolio() {
           ))}
         </div>
       </section>
-
+ 
       {/* HABILIDADES */}
       <section id="habilidades" style={{ padding: "4rem clamp(1.5rem, 5vw, 6rem) 6rem", maxWidth: "1100px", margin: "0 auto" }}>
         <Reveal>
@@ -295,7 +295,7 @@ export default function Portfolio() {
             <div style={{ flex: 1, height: "1px", background: "rgba(232,234,240,0.08)" }} />
           </div>
         </Reveal>
-
+ 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1rem", marginBottom: "2rem" }}>
           {Object.entries(data.skills).map(([cat, skills], i) => {
             const colors = [
@@ -320,7 +320,7 @@ export default function Portfolio() {
             );
           })}
         </div>
-
+ 
         {/* Idiomas */}
         <Reveal>
           <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "12px", padding: "1.5rem", marginBottom: "1.5rem" }}>
@@ -338,7 +338,7 @@ export default function Portfolio() {
             ))}
           </div>
         </Reveal>
-
+ 
         {/* Soft skills */}
         <Reveal>
           <div style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "12px", padding: "1.5rem" }}>
@@ -351,7 +351,7 @@ export default function Portfolio() {
           </div>
         </Reveal>
       </section>
-
+ 
       {/* CONTACTO */}
       <section id="contacto" style={{ padding: "4rem clamp(1.5rem, 5vw, 6rem) 8rem", maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
         <Reveal>
@@ -397,14 +397,14 @@ export default function Portfolio() {
           </div>
         </Reveal>
       </section>
-
+ 
       {/* FOOTER */}
       <footer style={{ borderTop: "1px solid rgba(255,255,255,0.06)", padding: "2rem", textAlign: "center" }}>
         <span style={{ fontFamily: "'Space Mono', monospace", fontSize: "11px", color: "rgba(232,234,240,0.2)" }}>
           © 2026 Eduardo Robles Escoda · Alicante, España
         </span>
       </footer>
-
+ 
       <style>{`
         @keyframes pulse {
           0%, 100% { opacity: 1; }
